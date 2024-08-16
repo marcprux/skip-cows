@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
   name         : "cows",
+  platforms    : [ .iOS(.v16), .macOS(.v13), .tvOS(.v16), .watchOS(.v9) ],
   products     : [
     .library   (name: "cows", targets: [ "cows" ]),
     .executable(name: "vaca", targets: [ "vaca" ])
@@ -13,6 +14,6 @@ let package = Package(
   targets      : [ 
     .target(name: "cows",
             plugins: [ .plugin(name: "skipstone", package: "skip") ]),
-    .target(name: "vaca", dependencies: [ "cows" ])
+    .executableTarget(name: "vaca", dependencies: [ "cows" ])
   ]
 )
